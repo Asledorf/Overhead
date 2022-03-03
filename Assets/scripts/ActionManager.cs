@@ -70,11 +70,36 @@ public class ActionManager : MonoBehaviour
         StartInitialAnimation();
     }
 
+    [SerializeField] float Timer = 10f;
+    float timer = 5f;
+    int extraWaves = 0;
+    [SerializeField] int maxExtraWaves = 5;
+
     private void Update()
     {
+        if (countdown > 30) countdown = 30;
         UpdateTime();
         waveSpawner.UpdateUI(countdown);
         CheckCountdown();
+
+        if(extraWaves > 0 && timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if(timer < 0)
+            {
+                extraWaves--;
+                timer = Timer;
+            }
+        }
+
+        if (extraWaves <= maxExtraWaves && Input.GetKeyDown(KeyCode.Q))
+        {
+            waveSpawner.soulsConter.AddSouls(countdown);
+            countdown = 0;
+            CheckCountdown();
+            nextAction = NextAction.Interval;
+            DoNextAction();
+        }
     }
 
     private void CheckCountdown()

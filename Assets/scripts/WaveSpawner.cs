@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour {
 
+	public enum Difficulty
+    {
+		Easy,
+		Medium,
+		Hard,
+		Expert
+    }
+
+	public Difficulty difficulty = Difficulty.Expert;
+	private float difMulti = 1f;
+
 	[Header("Spawn Attributes")]
 
 	public float timeBetweenWaves = 5f;
@@ -34,7 +45,7 @@ public class WaveSpawner : MonoBehaviour {
 	private Transform[] spawnPoint;
 	private GameObject masterTower;
 	private GameObject[] thisWaveSpawnEnemies;
-	private SoulsCounter soulsConter;
+	public SoulsCounter soulsConter;
 	private WayPointsScript[] wayPoints;
 	private MasterTowerScript masterTowerScript;
     private Text warningWaveText;
@@ -127,7 +138,7 @@ public class WaveSpawner : MonoBehaviour {
 			}
 		}
 		auxArr[auxArrIdx] = indexVal;
-		thisWaveSpawnEnemies = new GameObject[auxArrIdx + 1];
+		thisWaveSpawnEnemies = new GameObject[Mathf.FloorToInt((auxArrIdx + 1) * difMulti)];
 		int j = 0; 
 		for (int i = auxArrIdx; i >= 0; i--) 
         {
@@ -150,9 +161,9 @@ public class WaveSpawner : MonoBehaviour {
 	/// </summary>
 	private void AjustDifficulty()
     {
-		baseSpeed = baseSpeed * SpeedWaveConst;
+		baseSpeed = (baseSpeed * difMulti)* SpeedWaveConst;
 		baseSpeed = Mathf.Clamp (baseSpeed, 1f, 2f);
-		baseHP = baseHP * HPWaveConst;
+		baseHP = (baseHP * difMulti) * HPWaveConst;
 	}
 
 	private void Awake()
@@ -168,6 +179,23 @@ public class WaveSpawner : MonoBehaviour {
 		soulsConter = this.GetComponent<SoulsCounter> ();
 		masterTowerScript = masterTower.GetComponent<MasterTowerScript> ();
         actionManager = gameObject.GetComponent<ActionManager>();
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+				difMulti = 1f;
+                break;
+            case Difficulty.Medium:
+				difMulti = 1.25f;
+				break;
+            case Difficulty.Hard:
+				difMulti = 1.75f;
+				break;
+            case Difficulty.Expert:
+				difMulti = 2.25f;
+				break;
+            default:
+                break;
+        }
         baseSpeed = baseSpeedConst;
         baseHP = baseHPConst;
         if (IsInCorrectScene() == false) return;
