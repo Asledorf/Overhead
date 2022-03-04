@@ -15,11 +15,11 @@ C:/Users/asled/Documents/GitHub/Overhead
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59820
+51711
 Successfully changed project path to: C:/Users/asled/Documents/GitHub/Overhead
 C:/Users/asled/Documents/GitHub/Overhead
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 83.64 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 74.22 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.30f1 (1fb1bf06830e)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Resources/UnitySubsystems
@@ -35,92 +35,92 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56328
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56412
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003168 seconds.
+Registered in 0.003085 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 67.56 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 61.00 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.648 seconds
+- Completed reload, in  0.643 seconds
 Domain Reload Profiling:
-	ReloadAssembly (648ms)
-		BeginReloadAssembly (70ms)
+	ReloadAssembly (643ms)
+		BeginReloadAssembly (69ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
 		EndReloadAssembly (496ms)
-			LoadAssemblies (68ms)
+			LoadAssemblies (66ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (152ms)
+			SetupTypeCache (163ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (208ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (194ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (68ms)
-				BeforeProcessingInitializeOnLoad (16ms)
-				ProcessInitializeOnLoadAttributes (89ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
+				RefreshPlugins (61ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (84ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005859 seconds.
+Registered in 0.005897 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.217 seconds
+- Completed reload, in  1.205 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1218ms)
-		BeginReloadAssembly (162ms)
+	ReloadAssembly (1206ms)
+		BeginReloadAssembly (166ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (983ms)
-			LoadAssemblies (110ms)
+		EndReloadAssembly (972ms)
+			LoadAssemblies (106ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (286ms)
+			SetupTypeCache (321ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (416ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (396ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (126ms)
-				ProcessInitializeOnLoadAttributes (231ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (234ms)
 				ProcessInitializeOnLoadMethodAttributes (42ms)
-				AfterProcessingInitializeOnLoad (9ms)
+				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.99 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2346 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 98.2 MB.
-System memory in use after: 98.4 MB.
+System memory in use before: 98.3 MB.
+System memory in use after: 98.5 MB.
 
 Unloading 55 unused Assets to reduce memory usage. Loaded Objects now: 2756.
-Total: 8.155600 ms (FindLiveObjects: 0.417900 ms CreateObjectMapping: 0.099100 ms MarkObjects: 7.512900 ms  DeleteObjects: 0.123300 ms)
+Total: 6.505300 ms (FindLiveObjects: 0.213900 ms CreateObjectMapping: 0.058600 ms MarkObjects: 6.145400 ms  DeleteObjects: 0.086400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -134,6 +134,270 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+  path: Assets/prefab/Canvas/EventSystem.prefab
+  artifactKey: Guid(e12ef3d10825644249730dcb14d8fa60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/EventSystem.prefab using Guid(e12ef3d10825644249730dcb14d8fa60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf38c51ba38fad2879aeffc5f521aba5') in 0.076014 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/prefab/Canvas/ShopTowerItem.prefab
+  artifactKey: Guid(060013cbf89f74f89a0688cc993ad243) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/ShopTowerItem.prefab using Guid(060013cbf89f74f89a0688cc993ad243) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f45964f4f357b316890ebb5db2de4502') in 0.059871 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/prefab/Canvas/InfoCanvas.prefab
+  artifactKey: Guid(ccd6974a99ed95e4fa96c4a42ce8f553) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/InfoCanvas.prefab using Guid(ccd6974a99ed95e4fa96c4a42ce8f553) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddd28e2bc92bfadd08fd1605d4e05e48') in 0.013810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/prefab/Canvas/Canvas.prefab
+  artifactKey: Guid(0b856abfdd5ce4931b2113cd82c17491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/Canvas.prefab using Guid(0b856abfdd5ce4931b2113cd82c17491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6dda10713f10463ddb1b385772e12e3') in 0.094318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/prefab/Canvas/EventSystem 1.prefab
+  artifactKey: Guid(dea061d447ced4c26a34a0e311102897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/EventSystem 1.prefab using Guid(dea061d447ced4c26a34a0e311102897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff72772ceb9bc8fcfaaf24cd9ccb27e') in 0.011010 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/prefab/Canvas/hpText.prefab
+  artifactKey: Guid(1dd6ea2ac31142d47bf8cb7155691749) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/hpText.prefab using Guid(1dd6ea2ac31142d47bf8cb7155691749) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '390eaae1ac730951988a3d12f040470c') in 0.008757 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/prefab/Canvas
+  artifactKey: Guid(dee4ad1c6eb5b474da4842792bc05c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas using Guid(dee4ad1c6eb5b474da4842792bc05c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c9bc61f653692abc6b54ddbc5cafb8f') in 0.002883 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/prefab/Canvas/EnemyCanvas.prefab
+  artifactKey: Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/EnemyCanvas.prefab using Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7aa9ae80c17e5faf79b1a78304d4048') in 0.014907 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/prefab/Canvas/GameOverCanvas.prefab
+  artifactKey: Guid(97e1aed4d1e40814bbee8e360eb6b6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/GameOverCanvas.prefab using Guid(97e1aed4d1e40814bbee8e360eb6b6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee6eed265654b68cdf4d9e5485e921c2') in 0.011042 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/prefab/Canvas/PlayerCanvas.prefab
+  artifactKey: Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/PlayerCanvas.prefab using Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14474ce51e42255abe7754e50f81c7b8') in 0.009515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/prefab/Canvas/PauseCanvas.prefab
+  artifactKey: Guid(74f4d1f54da024845bcab1fd08899c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/PauseCanvas.prefab using Guid(74f4d1f54da024845bcab1fd08899c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee12d79ee476ad424d07f205c376564f') in 0.010041 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.505689 seconds.
+  path: Assets/prefab/Canvas/EnemyCanvas.prefab
+  artifactKey: Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/EnemyCanvas.prefab using Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7f97bef6be532989868b597f5d70b7f') in 0.005779 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.364937 seconds.
+  path: Assets/prefab/Canvas/EnemyCanvas.prefab
+  artifactKey: Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/EnemyCanvas.prefab using Guid(0c305d3d0cebb694fa2956c6ac5a5bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f477493123f1d88e664960008c4dc5fb') in 0.006154 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.071223 seconds.
+  path: Assets/prefab/Canvas/InfoCanvas.prefab
+  artifactKey: Guid(ccd6974a99ed95e4fa96c4a42ce8f553) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/InfoCanvas.prefab using Guid(ccd6974a99ed95e4fa96c4a42ce8f553) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74722414daf113c28c928252555bc8cd') in 0.006487 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.941809 seconds.
+  path: Assets/prefab/Canvas/PlayerCanvas.prefab
+  artifactKey: Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/PlayerCanvas.prefab using Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfc3eaf0e882a199cb868608aa13783f') in 0.006916 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.511681 seconds.
+  path: Assets/prefab/Canvas/PlayerCanvas.prefab
+  artifactKey: Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/PlayerCanvas.prefab using Guid(ab9dc49384dafae438c6cd9e71582d5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc224b28bc9a646bbfaade989e43fee5') in 0.005002 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.624978 seconds.
+  path: Assets/images/Gradients/GradientNewWave.png
+  artifactKey: Guid(0a056e74f31214ad6b1d66c67c60c0a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/GradientNewWave.png using Guid(0a056e74f31214ad6b1d66c67c60c0a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68e1318c2105937f3dc271419d726f9f') in 0.224160 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/images/Gradients/gradientTest2.psd
+  artifactKey: Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest2.psd using Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '292a897355d8694c0e93dd60b2ad00b1') in 0.071564 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/images/Gradients/gradientTest3.psd
+  artifactKey: Guid(545894ff8f0b04f67900847a5c4b2ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest3.psd using Guid(545894ff8f0b04f67900847a5c4b2ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9d97bda3133612d88f3194f3b09c582') in 0.101830 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/images/Gradients/gradientTest7.png
+  artifactKey: Guid(d9ba5f8cb677642bc8aabbc935250781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest7.png using Guid(d9ba5f8cb677642bc8aabbc935250781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af2ed0a6aa6209ffcfc5fca130c078d6') in 0.017096 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/images/Gradients/gradientTest.psd
+  artifactKey: Guid(657fab567f37e4b758f78970fe536a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest.psd using Guid(657fab567f37e4b758f78970fe536a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12357db8a9fa8212c084b10ba1f160f9') in 0.071009 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/images/Gradients/gradientTest4.psd
+  artifactKey: Guid(e4f02057653c640969780a0edd730c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest4.psd using Guid(e4f02057653c640969780a0edd730c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5874ff053db93e569cd091b145629362') in 0.087594 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/images/Gradients/GradientNewWave2.psd
+  artifactKey: Guid(5b06304bd1c4d4466af5ebba8f92194d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/GradientNewWave2.psd using Guid(5b06304bd1c4d4466af5ebba8f92194d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d6ea4d57230788acaffbc787a7ed43e') in 0.047247 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/images/Gradients/gradientTest7.psd
+  artifactKey: Guid(fe489cfc04d1e4fc7b0b7749ebcf7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest7.psd using Guid(fe489cfc04d1e4fc7b0b7749ebcf7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e5a638d27dab90942c6dd8406380ae') in 0.081383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/images/Gradients/GradientNewWave.psd
+  artifactKey: Guid(211ffaa425e2842439473c3ae9035988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/GradientNewWave.psd using Guid(211ffaa425e2842439473c3ae9035988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44d8a44431dde4f9ff311693683db351') in 0.099661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/images/Gradients/GradientNewWave2.png
+  artifactKey: Guid(5dfd9e7e5afeb485d9299a08501f01a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/GradientNewWave2.png using Guid(5dfd9e7e5afeb485d9299a08501f01a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65764bb8b07b8022f5785895a2ea315d') in 0.124618 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/images/Gradients/gradientTest5.psd
+  artifactKey: Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest5.psd using Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8b490c9ae17fbcd223e1c09a23c2002') in 0.022700 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/images/Gradients/gradientTest6.psd
+  artifactKey: Guid(5a6a2af52261d42899097fd277db95a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradientTest6.psd using Guid(5a6a2af52261d42899097fd277db95a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b87e2cdd8a29f421db39f3ca5fe17a3c') in 0.015952 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 75.146800 seconds.
+  path: Assets/images/Gradients/gradient_quarterCircle_small.psd
+  artifactKey: Guid(e4f02057653c640969780a0edd730c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_quarterCircle_small.psd using Guid(e4f02057653c640969780a0edd730c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4f093c1b58e3c933c02ee3c88a45d6c') in 0.016327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.783321 seconds.
+  path: Assets/images/Gradients/gradient_quarterCircle_largge.psd
+  artifactKey: Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_quarterCircle_largge.psd using Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e8251309bf6a7136594126da562967a') in 0.016685 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.131950 seconds.
+  path: Assets/images/Gradients/gradient_quarterCircle_large.psd
+  artifactKey: Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_quarterCircle_large.psd using Guid(609ecf9ee2f534e3e8dc781e5cf5a101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bb47392ce3cde08dfd4d56867f5c619') in 0.016681 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.929315 seconds.
+  path: Assets/images/Gradients/gradient_halfCircle_small.psd
+  artifactKey: Guid(5a6a2af52261d42899097fd277db95a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_halfCircle_small.psd using Guid(5a6a2af52261d42899097fd277db95a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06d91d727f96c7a96e9248bb6d2f070f') in 0.017248 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.002989 seconds.
+  path: Assets/images/Gradients/gradient_square.png
+  artifactKey: Guid(d9ba5f8cb677642bc8aabbc935250781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_square.png using Guid(d9ba5f8cb677642bc8aabbc935250781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dde9a95f515449a6199d05cb93dc5803') in 0.016685 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.657851 seconds.
+  path: Assets/images/Gradients/gradient_square1.psd
+  artifactKey: Guid(fe489cfc04d1e4fc7b0b7749ebcf7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_square1.psd using Guid(fe489cfc04d1e4fc7b0b7749ebcf7676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '516376c9352c0afc4d13304f9ef74a43') in 0.017322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.450986 seconds.
+  path: Assets/images/Gradients/gradient_AtoEdge.psd
+  artifactKey: Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_AtoEdge.psd using Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d30fda5cab292676f0076550ea2621') in 0.015332 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.868419 seconds.
+  path: Assets/images/Gradients/gradient_AtoCorner.psd
+  artifactKey: Guid(545894ff8f0b04f67900847a5c4b2ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_AtoCorner.psd using Guid(545894ff8f0b04f67900847a5c4b2ff4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2e4d7cb71e20b7f074828d1202fefcb') in 0.016378 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.903213 seconds.
+  path: Assets/images/Gradients/gradient_BlkToEdge.psd
+  artifactKey: Guid(657fab567f37e4b758f78970fe536a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_BlkToEdge.psd using Guid(657fab567f37e4b758f78970fe536a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec6b275dcd60a94d3d2b8f8b4f7ad137') in 0.014869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 37.151690 seconds.
+  path: Assets/images/Gradients/gradient_AtoEdge_top.psd
+  artifactKey: Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_AtoEdge_top.psd using Guid(809b72f79980f4c7294370b48c456e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60bfa750fef4f4b5b9c5819571bca166') in 0.020737 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 72.464713 seconds.
+  path: Assets/images/Gradients/gradient_AtoEdge_left.psd
+  artifactKey: Guid(12d282eb953900a429ee7118b238eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_AtoEdge_left.psd using Guid(12d282eb953900a429ee7118b238eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f40b3c722ea2a2557be85383c3e28c04') in 0.026595 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.905270 seconds.
+  path: Assets/images/Gradients
+  artifactKey: Guid(31d0b74fc5eb543dd98b440dc45c4f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients using Guid(31d0b74fc5eb543dd98b440dc45c4f09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70271a4a9e816316050a805ee2b0008d') in 0.021612 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 118.420544 seconds.
+  path: Assets/images/Gradients/gradient_AtoEdge_left.psd
+  artifactKey: Guid(12d282eb953900a429ee7118b238eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/Gradients/gradient_AtoEdge_left.psd using Guid(12d282eb953900a429ee7118b238eb76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a115ac3d1e81a5a0274291fa034a5572') in 0.017066 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1045.745419 seconds.
+  path: Assets/Fonts/blackchancery/BLKCHCRY.TTF
+  artifactKey: Guid(a5bbd4b494fad469b9e3670a5af9ae52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/blackchancery/BLKCHCRY.TTF using Guid(a5bbd4b494fad469b9e3670a5af9ae52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd361a2ee101f70e0721defa4183472b3') in 0.135975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.502490 seconds.
+  path: Assets/Fonts/blackchancery/blackchancery.zip
+  artifactKey: Guid(6276f1b8ba1d64a29969c82945c8a541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/blackchancery/blackchancery.zip using Guid(6276f1b8ba1d64a29969c82945c8a541) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd3ed7918ba5ee278a319a6f31333a92') in 0.014140 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 632.792890 seconds.
+  path: Assets/prefab/Canvas/Canvas.prefab
+  artifactKey: Guid(0b856abfdd5ce4931b2113cd82c17491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefab/Canvas/Canvas.prefab using Guid(0b856abfdd5ce4931b2113cd82c17491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d548b0ff9c1da8188bd9bbcd3235cf2') in 0.036528 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.009391 seconds.
   path: Assets/scenes/Main.unity
   artifactKey: Guid(aa1d51138880e4560bd822dc79712763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/scenes/Main.unity using Guid(aa1d51138880e4560bd822dc79712763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9154f764e8846487e21e6b77f43baa45') in 0.023361 seconds 
+Start importing Assets/scenes/Main.unity using Guid(aa1d51138880e4560bd822dc79712763) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae97b5bc78e3f1c429abb5e513c66593') in 0.017619 seconds 

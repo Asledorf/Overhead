@@ -27,7 +27,7 @@ public class AudioRecorder : MonoBehaviour {
 			//audioSource.Play();
 			//resize our temporary vector every second
 			//Invoke("ResizeRecording", 1);
-			UnityEngine.Debug.Log("Para gravar um som, aperte espaço. Este será salvo enquanto o jogo estiver em execução. Para ouvir os sons gravados, navegue\n pelas teclas númericas e aperte E caso deseje salvar o som gravado em execução. O arquivo será salvo em (currentdirectory)\\audio\\audio.wav");
+			UnityEngine.Debug.Log("To record a sound, press space. This will be saved while the game is running. To hear the recorded sounds, navigate\n the number keys and press E if you want to save the recorded sound while playing. The file will be saved in (currentdirectory)\\audio\\audio.wav");
 		}
 	}
 
