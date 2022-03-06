@@ -11,195 +11,180 @@ public class CameraControllerScript : MonoBehaviour
 	public float minY = 10f;
 	public float maxY = 80f;
 
-    private float frontRation;
-    private float backRation;
-    private float rightRation;
-    private float leftRation;
-	private float minXInMaxY = 10f;
-	private float maxXInMaxY = 80f;
-	private float minZInMaxY = 10f;
-	private float maxZInMaxY = 80f;
-    private float minX = 10f;
-    private float maxX = 80f;
-    private float minZ = 10f;
-    private float maxZ = 80f;
-    private float epsilon = 0.0001f;
-    float posX;
-    float posY;
-    float posZ;
+	float frontRation;
+	float backRation;
+	float rightRation;
+	float leftRation;
+	float minXInMaxY = 10f;
+	float maxXInMaxY = 80f;
+	float minZInMaxY = 10f;
+	float maxZInMaxY = 80f;
+	float minX = 10f;
+	float maxX = 80f;
+	float minZ = 10f;
+	float maxZ = 80f;
+	float epsilon = 0.0001f;
+	float posX;
+	float posY;
+	float posZ;
 
-	private Animator anim;
+	Animator anim;
 
-	private void Update ()
-    {
-		MoveScreen ();
-		ZoomScroll ();
-		LimitPosition ();
+	private void Update()
+	{
+		MoveScreen();
+		ZoomScroll();
+		LimitPosition();
 
-		if (Input.GetKeyDown(KeyCode.C) && Application.isEditor)
+		if (Input.GetKeyDown(KeyCode.C) && Application.isEditor) //seems to be debug?
 			ShakeBySpeed(1f, 1f);
 	}
 
 	private void Start()
-    {
-        minXInMaxY = (-1f) * moduleDimension - 8.5f;
-        maxXInMaxY = moduleDimension - 23f;
-		minZInMaxY = (-1f)*moduleDimension - 16.5f;
-        maxZInMaxY = moduleDimension - 33f;
+	{
+		minXInMaxY = (-1f) * moduleDimension - 8.5f;
+		maxXInMaxY = moduleDimension - 23f;
+		minZInMaxY = (-1f) * moduleDimension - 16.5f;
+		maxZInMaxY = moduleDimension - 33f;
 
-        frontRation = (maxZInMaxY - moduleDimension) / maxY;
-        backRation = ( minZInMaxY + moduleDimension ) / maxY;
-        leftRation = ( minXInMaxY + moduleDimension ) / maxY;
-        rightRation = (maxXInMaxY - moduleDimension) / maxY;
+		frontRation = (maxZInMaxY - moduleDimension) / maxY;
+		backRation  = (minZInMaxY + moduleDimension) / maxY;
+		leftRation  = (minXInMaxY + moduleDimension) / maxY;
+		rightRation = (maxXInMaxY - moduleDimension) / maxY;
 
 		anim = GetComponentInChildren<Animator>();
 	}
 
-	//move the camera white awsd or with mouse in the border
+	//move the camera white wasd or with mouse in the border
 	private void MoveScreen()
-    {
-		if ( 
-            Input.GetKey ("w") || 
-			( Input.mousePosition.y >= (Screen.height - panBoardThickness) && 
-             Input.mousePosition.y <= Screen.height)
+	{
+		int x = 0, y = 0;
+		if
+		(
+			Input.GetKey(KeyCode.W)
+			|| (Input.mousePosition.y >= (Screen.height - panBoardThickness) && Input.mousePosition.y <= Screen.height)
 			|| Input.GetKey(KeyCode.UpArrow)
-           ) 
-        {
-			GoForward ();
-		}
-		if ( Input.GetKey ("s") || 
-			( Input.mousePosition.y <= panBoardThickness && 
-             Input.mousePosition.y >= 0f ) ||
-			Input.GetKey(KeyCode.DownArrow)
-           ) 
-        {
-			GoBack ();
-		}
-		if ( 
-            Input.GetKey ("d") || 
-			( Input.mousePosition.x >= Screen.width - panBoardThickness && Input.mousePosition.x <= Screen.width) ||
+		) y++;
+
+		if 
+		( 
+			Input.GetKey (KeyCode.S) 
+			|| ( Input.mousePosition.y <= panBoardThickness && Input.mousePosition.y >= 0f ) 
+			|| Input.GetKey(KeyCode.DownArrow)
+		) y--;
+
+		if
+		(
+			Input.GetKey(KeyCode.D) ||
+			(Input.mousePosition.x >= Screen.width - panBoardThickness && Input.mousePosition.x <= Screen.width) ||
 			Input.GetKey(KeyCode.RightArrow)
-           ) 
-        {
-			GoRight ();
-		}
-		if (
-            Input.GetKey ("a") || 
-			(Input.mousePosition.x <= panBoardThickness && Input.mousePosition.x >= 0f) ||
-			Input.GetKey(KeyCode.LeftArrow)
-        ) 
-        {
-			GoLeft ();
-		}
+		) x++;
+
+		if
+		(
+			Input.GetKey(KeyCode.A)
+			|| (Input.mousePosition.x <= panBoardThickness && Input.mousePosition.x >= 0f)
+			|| Input.GetKey(KeyCode.LeftArrow)
+		) x--;
+
+		transform.Translate(panSpeed * Time.deltaTime * new Vector3(x,y).normalized, Space.Self);
 	}
 
 	//Transform mouse scroll into zoom and defines min and max distances
 	private void ZoomScroll()
-    {
-        float scroll = LimitScrollSensibility( Input.GetAxis("Mouse ScrollWheel") );
+	{
+		float scroll = LimitScrollSensibility(Input.GetAxis("Mouse ScrollWheel") );
 
-        if ( transform.position.y > minY - epsilon && transform.position.y < maxY + epsilon )
-            ZoomMoviment(scroll);
+		//new code for scroll logic
+		if (scroll != 0)
+		{
+			Camera.main.orthographicSize -= scroll;
+			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 4, 12);
+		}
+
+		if ( transform.position.y > minY - epsilon && transform.position.y < maxY + epsilon )
+			ZoomMovement(scroll);
 	}
 
-    private float LimitScrollSensibility(float scroll)
-    {
-        return Mathf.Clamp(scroll, (-1f) * scrollMaxSensibility, scrollMaxSensibility);
-    }
+	private float LimitScrollSensibility(float scroll)
+	{
+		return Mathf.Clamp(scroll, (-1f) * scrollMaxSensibility, scrollMaxSensibility);
+	}
 
+	
 	//Camera zoom moviment
-	private void ZoomMoviment(float scroll)
-    {
+	private void ZoomMovement(float scroll)
+	{
 		Vector3 triedPosition = transform.position;
 		triedPosition.y -= scroll * scrollSpeed * 200 * Time.deltaTime;
 
-        if ( triedPosition.y > minY - epsilon && triedPosition.y < maxY + epsilon )
-        {
-            ZoomVerticalMoviment(triedPosition);
-            ZoomHorizontalMoviment(scroll);
-            return;
-        }
-        if ( triedPosition.y <= minY - epsilon )
-        {
-            float triedMoviment = Mathf.Abs(transform.position.y - triedPosition.y );
-            float maxDisplacement = Mathf.Abs(transform.position.y - (minY - epsilon));
-            float movimentRation = maxDisplacement / triedMoviment;
-            triedPosition.y = minY;
-            ZoomVerticalMoviment( triedPosition );
-            ZoomHorizontalMoviment( scroll * movimentRation );
-            return;
-        }
-        if (triedPosition.y >= maxY + epsilon)
-        {
-            float triedMoviment = Mathf.Abs( transform.position.y - triedPosition.y );
-            float maxDisplacement = Mathf.Abs( transform.position.y - (maxY + epsilon) );
-            float movimentRation = maxDisplacement / triedMoviment;
-            triedPosition.y = maxY;
-            ZoomVerticalMoviment( triedPosition );
-            ZoomHorizontalMoviment(scroll * movimentRation);
-            return;
-        }
+		if ( triedPosition.y > minY - epsilon && triedPosition.y < maxY + epsilon )
+		{
+			ZoomVerticalMovement(triedPosition);
+			ZoomHorizontalMovement(scroll);
+			return;
+		}
+		if ( triedPosition.y <= minY - epsilon )
+		{
+			float triedMoviment = Mathf.Abs(transform.position.y - triedPosition.y );
+			float maxDisplacement = Mathf.Abs(transform.position.y - (minY - epsilon));
+			float movimentRation = maxDisplacement / triedMoviment;
+			triedPosition.y = minY;
+			ZoomVerticalMovement( triedPosition );
+			ZoomHorizontalMovement( scroll * movimentRation );
+			return;
+		}
+		if (triedPosition.y >= maxY + epsilon)
+		{
+			float triedMoviment = Mathf.Abs( transform.position.y - triedPosition.y );
+			float maxDisplacement = Mathf.Abs( transform.position.y - (maxY + epsilon) );
+			float movimentRation = maxDisplacement / triedMoviment;
+			triedPosition.y = maxY;
+			ZoomVerticalMovement( triedPosition );
+			ZoomHorizontalMovement(scroll * movimentRation);
+			return;
+		}
 	}
 
-    private void ZoomVerticalMoviment(Vector3 pos)
-    {
-        transform.position = pos;
-    }
+	private void ZoomVerticalMovement(Vector3 pos)
+	{
+		transform.position = pos;
+	}
 
-	private void ZoomHorizontalMoviment(float scroll)
-    {
-		Vector3 pos = transform.position;
+	private void ZoomHorizontalMovement(float scroll)
+	{
+		//Vector3 pos = transform.position;
 		transform.Translate (Vector3.forward * scroll * scrollSpeed * 200 * Time.deltaTime, Space.Self);
 	}
 
 	private void LimitPosition()
-    {
-        SetPos();
-        SetCameraEdgesForTheHeigh();
-        ClampCameraPosition();
+	{
+		SetPos();
+		SetCameraEdgesForTheHeigh();
+		ClampCameraPosition();
 		transform.position = new Vector3 (posX, posY, posZ);
 	}
 
-    private void SetPos()
-    {
-        posX = transform.position.x;
-        posY = transform.position.y;
-        posZ = transform.position.z;
-    }
-
-    private void SetCameraEdgesForTheHeigh()
-    {
-        minX = leftRation * posY - moduleDimension;
-        minZ = backRation * posY - moduleDimension;
-        maxX = rightRation * posY + moduleDimension;
-        maxZ = frontRation * posY + moduleDimension;
-    }
-
-    private void ClampCameraPosition()
-    {
-        posX = Mathf.Clamp(posX, minX, maxX);
-        posY = Mathf.Clamp(posY, minY, maxY);
-        posZ = Mathf.Clamp(posZ, minZ, maxZ);
-    }
-
-	private void GoForward () 
-    {
-		transform.Translate ( Vector3.forward * panSpeed * Time.deltaTime, Space.Self );
+	private void SetPos()
+	{
+		posX = transform.position.x;
+		posY = transform.position.y;
+		posZ = transform.position.z;
 	}
 
-	private void GoBack () 
-    {
-		transform.Translate ( Vector3.back * panSpeed * Time.deltaTime, Space.Self );
+	private void SetCameraEdgesForTheHeigh()
+	{
+		minX = leftRation * posY - moduleDimension;
+		minZ = backRation * posY - moduleDimension;
+		maxX = rightRation * posY + moduleDimension;
+		maxZ = frontRation * posY + moduleDimension;
 	}
 
-	private void GoLeft () 
-    {
-		transform.Translate ( Vector3.left * panSpeed * Time.deltaTime, Space.Self );
-	}
-
-	private void GoRight () 
-    {
-		transform.Translate ( Vector3.right * panSpeed * Time.deltaTime, Space.Self );
+	private void ClampCameraPosition()
+	{
+		posX = Mathf.Clamp(posX, minX, maxX);
+		posY = Mathf.Clamp(posY, minY, maxY);
+		posZ = Mathf.Clamp(posZ, minZ, maxZ);
 	}
 
 	/// <summary>
@@ -207,7 +192,7 @@ public class CameraControllerScript : MonoBehaviour
 	/// </summary>
 	/// <param name="speed">The speed of the animation playing</param>
 	/// <param name="percentageOfAnimationToShow">Which percentage of the animation should play</param>
-	public void ShakeBySpeed (float speed, float percentageOfAnimationToShow)
+	public void ShakeBySpeed(float speed, float percentageOfAnimationToShow)
 	{
 		//float t0 = Time.time;
 		anim.SetFloat("speed", speed);

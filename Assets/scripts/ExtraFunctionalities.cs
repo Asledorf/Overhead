@@ -5,41 +5,56 @@ using UnityEngine.UI;
 
 public class ExtraFunctionalities : MonoBehaviour {
 
-	[SerializeField] private KeyCode pauseButton;
-	[SerializeField] private KeyCode advanceTimeButton;
-	[SerializeField] private KeyCode screenShotButton;
-	[SerializeField] private KeyCode sequencedScreenShotButton;
-	[SerializeField] private Image advanceTimeImage;
-	[SerializeField] private int screenShotResolution = 1;
-	[SerializeField] private int sequencedNumber = 5;
+	[SerializeField] KeyCode pauseButton;
+	[SerializeField] KeyCode advanceTimeButton;
+	[SerializeField] KeyCode screenShotButton;
+	[SerializeField] KeyCode sequencedScreenShotButton;
+	[SerializeField] Image advanceTimeImage;
+	[SerializeField] int screenShotResolution = 1;
+	[SerializeField] int sequencedNumber = 5;
+	[SerializeField] bool resetNumber = false;
 
-	[SerializeField] private bool resetNumber = false;
+	int ScreenShotNum;
+	float storedTimeScale = 1;
 
-	private int ssNumber;
-
-	// Use this for initialization
-	void Start () {
-		if (resetNumber) {
+	void Start () 
+	{
+		if (resetNumber) 
+		{
 			PlayerPrefs.SetInt ("ssNumber", 0);
 			resetNumber = false;
 		}
 
-		ssNumber = PlayerPrefs.GetInt ("ssNumber");
-		//Debug.Log (ssNumber);
+		ScreenShotNum = PlayerPrefs.GetInt ("ssNumber");
 
 		Time.timeScale = 1;
-		if (advanceTimeImage != null)
-			advanceTimeImage.enabled = false;
+		SetPlaySpeed_Normal();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if (Input.GetKeyDown(pauseButton)) 
+		{
+			if(Time.timeScale != 0)
+				SetPlaySpeed_Pause();
+            else
+            {
+				if (storedTimeScale == 1)
+					SetPlaySpeed_Normal();
+				if(storedTimeScale == 3)
+					SetPlaySpeed_Fast();
+            }
+		}
 
-		if (Input.GetKeyDown (pauseButton)) {
-			if (Time.timeScale > 1)
-				Time.timeScale = 1;
+		if (Input.GetKeyDown(advanceTimeButton))
+		{
+			if (Time.timeScale == 0) return;
 
-			Time.timeScale = 1 - Time.timeScale;
+			if (Time.timeScale == 1)
+				SetPlaySpeed_Fast();
+			else
+				SetPlaySpeed_Normal();
 		}
 
 		if (Input.GetKeyDown(screenShotButton)) {
@@ -49,31 +64,34 @@ public class ExtraFunctionalities : MonoBehaviour {
 		if (Input.GetKeyDown(sequencedScreenShotButton)) {
 			StartCoroutine (TakeSequencedScreenShot());
 		}
+	}
 
-		if (Time.timeScale != 0) {   // If it's not paused
-			if (Input.GetKeyDown (advanceTimeButton)) {
-
-				if (advanceTimeImage != null)
-					advanceTimeImage.enabled = !advanceTimeImage.enabled;
-
-				if (Time.timeScale == 1) {
-					Time.timeScale = 3;
-					return;
-				}
-
-				if (Time.timeScale > 1) {
-					Time.timeScale = 1;
-					return;
-				}
-			}
-		}
+	//time management
+	void SetPlaySpeed_Fast()
+	{
+		storedTimeScale = Time.timeScale;
+		Time.timeScale = 3;
+		advanceTimeImage.enabled = true;
+	}
+	void SetPlaySpeed_Normal()
+	{
+		storedTimeScale = Time.timeScale;
+        Time.timeScale = 1;
+		advanceTimeImage.enabled = false;
+	}
+	void SetPlaySpeed_Pause()
+	{
+		storedTimeScale = Time.timeScale;
+		Time.timeScale = 0;
+		advanceTimeImage.enabled = false;
 	}
 
 	public void TakeScreenShot() {
 
-		ScreenCapture.CaptureScreenshot ("Screenshots/" + ssNumber + ".png", screenShotResolution); Debug.Log ("Screenshoot taked!");
-		ssNumber++;
-		PlayerPrefs.SetInt ("ssNumber", ssNumber);
+		ScreenCapture.CaptureScreenshot ("Screenshots/" + ScreenShotNum + ".png", screenShotResolution); 
+		Debug.Log ("Screenshot taken!");
+		ScreenShotNum++;
+		PlayerPrefs.SetInt ("ssNumber", ScreenShotNum);
 	}
 
 	IEnumerator TakeSequencedScreenShot () {
@@ -82,6 +100,6 @@ public class ExtraFunctionalities : MonoBehaviour {
 			yield return new WaitForSeconds (0.5f);
 		}
 
-		StopCoroutine ("TakeSequencedScreenShot");
+		StopCoroutine (nameof(TakeSequencedScreenShot));
 	}
 }
