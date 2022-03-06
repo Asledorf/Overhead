@@ -161,15 +161,9 @@ public class WaveSpawner : MonoBehaviour {
         baseSpeed = baseSpeedConst;
         baseHP = baseHPConst;
         if (IsInCorrectScene() == false) return;
-        waveNumberText = WaveText.GetComponent<Text>();
+        waveNumberText = WaveNum.GetComponent<Text>();
         waveCountdownText = CooldownNum.GetComponent<Text>();
         warningWaveText = GameObject.Find("WaveWarningNum").GetComponent<Text>();
-
-
-		if (!CooldownText)	Debug.LogError("fuck 1");
-		if (!CooldownNum)	Debug.LogError("fuck 2");
-		if (!WaveText)		Debug.LogError("fuck 3");
-		if (!WaveNum)		Debug.LogError("fuck 4");
 	}
 
     private bool IsInCorrectScene()
