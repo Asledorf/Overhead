@@ -1,129 +1,122 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VersionScriptManager : MonoBehaviour
 {
+	//this entire fucking script should be replaced with 4 Mathf.PingPong(); calls over the CanvasGroup alpha values using coroutines...
 
-    public float fadeTime = 1.5f;
-    public float fadeSpeed = 0.8f;
-    public float startCountdown = 2f;
-    public float welcomeTextTime = 5f;
-    public float Countdown1 = 1f;
-    public float Countdown2 = 1f;
+	public float fadeTime = 1.5f;
+	public float fadeSpeed = 0.8f;
+	public float startCountdown = 2f;
+	public float welcomeTextTime = 5f;
+	public float Countdown1 = 1f;
+	public float Countdown2 = 1f;
 
-    private bool fadeImage = false;
-    private bool fadeVersionText = false;
-    private bool fadeName1 = false;
-    private bool fadeName2 = false;
-    private bool fadeName3 = false;
-    private int fadeDirImage = 1;
-    private int fadeDirVersionText = 1;
-    private int fadeDirName1 = 1;
-    private int fadeDirName2 = 1;
-    private int fadeDirName3 = 1;
-    private GameObject image;
-    private GameObject versionText;
-    private MouseCursorManager mouseCursorManager;
-    private GameObject name1;
-    private GameObject name2;
-    private GameObject name3;
-    private string version;
+	private bool fadeVersionText = false;
+	private bool fadeName1 = false;
+	private bool fadeName2 = false;
+	private bool fadeName3 = false;
 
-    private void Start()
-    {
-        mouseCursorManager = gameObject.GetComponent<MouseCursorManager>();
-        image = GameObject.Find("Image");
-        versionText = GameObject.Find("VersionText");
-        name1 = GameObject.Find("Name1");
-        name2 = GameObject.Find("Name2");
-        name3 = GameObject.Find("Name3");
-        version = GameObject.Find("_VERSION").GetComponent<_Version>().GetVersion();
-        StartCoroutine(VersionSceneFlow());
-        image.SetActive(false);
-        versionText.SetActive(false);
-        name1.SetActive(false);
-        name2.SetActive(false);
-        name3.SetActive(false);
-        image.GetComponent<CanvasGroup>().alpha = 0;
-        versionText.GetComponent<CanvasGroup>().alpha = 0;
-        name1.GetComponent<CanvasGroup>().alpha = 0;
-        name2.GetComponent<CanvasGroup>().alpha = 0;
-        name3.GetComponent<CanvasGroup>().alpha = 0;
-        versionText.GetComponent<Text>().text = "Overhead - v" + version;
-    }
+	private int fadeDirVersionText = 1;
+	private int fadeDirName1 = 1;
+	private int fadeDirName2 = 1;
+	private int fadeDirName3 = 1;
 
-    private IEnumerator VersionSceneFlow()
-    {
+	private GameObject versionText;
+	private GameObject name_1;
+	private GameObject name_2;
+	private GameObject name_3;
 
-        yield return new WaitForSeconds(startCountdown);
-        image.SetActive(true);
-        fadeDirImage = 1;
-        fadeImage = true;
-        yield return new WaitForSeconds(fadeTime);
+	private string version;
 
-        versionText.SetActive(true);
-        fadeDirVersionText = 1;
-        fadeVersionText = true;
-        yield return new WaitForSeconds(fadeTime);
-        yield return new WaitForSeconds(fadeTime);
-        fadeDirVersionText = -1;
-        yield return new WaitForSeconds(fadeTime);
+	private void Start()
+	{
+		versionText = GameObject.Find("VersionText");
+		name_1 = GameObject.Find("Name1");
+		name_2 = GameObject.Find("Name2");
+		name_3 = GameObject.Find("Name3");
+		version = GameObject.Find("_VERSION").GetComponent<_Version>().GetVersion();
 
-        name1.SetActive(true);
-        fadeDirName1 = 1;
-        fadeName1 = true;
-        yield return new WaitForSeconds(fadeTime);
-        name2.SetActive(true);
-        fadeDirName2 = 1;
-        fadeName2 = true;
-        yield return new WaitForSeconds(fadeTime);
-        fadeDirName1 = -1;
-        name3.SetActive(true);
-        fadeDirName3 = 1;
-        fadeName3 = true;
-        yield return new WaitForSeconds(fadeTime);
-        fadeDirName2 = -1;
-        yield return new WaitForSeconds(fadeTime);
-        fadeDirName3 = -1;
-        yield return new WaitForSeconds(fadeTime);
+		StartCoroutine(VersionSceneFlow());
 
-        fadeDirImage = -1;
-        yield return new WaitForSeconds(fadeTime);
-        image.SetActive(false);
-        yield return new WaitForSeconds(startCountdown);
-        SceneManager.LoadScene("MainMenu");
-    }
+		versionText.SetActive(false);
+		name_1.SetActive(false);
+		name_2.SetActive(false);
+		name_3.SetActive(false);
+
+		versionText.GetComponent<CanvasGroup>().alpha = 0;
+		name_1.GetComponent<CanvasGroup>().alpha = 0;
+		name_2.GetComponent<CanvasGroup>().alpha = 0;
+		name_3.GetComponent<CanvasGroup>().alpha = 0;
+
+		versionText.GetComponent<Text>().text = "Overhead - v" + version;
+	}
+
+	private IEnumerator VersionSceneFlow()
+	{
+		yield return new WaitForSeconds(startCountdown);
+		yield return new WaitForSeconds(fadeTime);
+
+		versionText.SetActive(true);
+		fadeDirVersionText = 1;
+		fadeVersionText = true;
+		yield return new WaitForSeconds(fadeTime);
+		yield return new WaitForSeconds(fadeTime);
+		fadeDirVersionText = -1;
+		yield return new WaitForSeconds(fadeTime);
+
+		name_1.SetActive(true);
+		fadeDirName1 = 1;
+		fadeName1 = true;
+		yield return new WaitForSeconds(fadeTime);
+		name_2.SetActive(true);
+		fadeDirName2 = 1;
+		fadeName2 = true;
+		yield return new WaitForSeconds(fadeTime);
+		fadeDirName1 = -1;
+		name_3.SetActive(true);
+		fadeDirName3 = 1;
+		fadeName3 = true;
+		yield return new WaitForSeconds(fadeTime);
+		fadeDirName2 = -1;
+		yield return new WaitForSeconds(fadeTime);
+		fadeDirName3 = -1;
+		yield return new WaitForSeconds(fadeTime);
+
+		yield return new WaitForSeconds(fadeTime);
+		yield return new WaitForSeconds(startCountdown);
+		SceneManager.LoadScene("MainMenu");
+	}
 
 
-    void Update()
-    {
-        if (fadeImage)
-        {
-            image.GetComponent<CanvasGroup>().alpha += fadeDirImage * fadeSpeed * Time.deltaTime;
-            image.GetComponent<CanvasGroup>().alpha = Mathf.Clamp01(image.GetComponent<CanvasGroup>().alpha);
-        }
-        if (fadeVersionText)
-        {
-            versionText.GetComponent<CanvasGroup>().alpha += fadeDirVersionText * fadeSpeed * Time.deltaTime;
-            versionText.GetComponent<CanvasGroup>().alpha = Mathf.Clamp01(versionText.GetComponent<CanvasGroup>().alpha);
-        }
-        if (fadeName1)
-        {
-            name1.GetComponent<CanvasGroup>().alpha += fadeDirName1 * fadeSpeed * Time.deltaTime;
-            name1.GetComponent<CanvasGroup>().alpha = Mathf.Clamp01(name1.GetComponent<CanvasGroup>().alpha);
-        }
-        if (fadeName2)
-        {
-            name2.GetComponent<CanvasGroup>().alpha += fadeDirName2 * fadeSpeed * Time.deltaTime;
-            name2.GetComponent<CanvasGroup>().alpha = Mathf.Clamp01(name2.GetComponent<CanvasGroup>().alpha);
-        }
-        if (fadeName3)
-        {
-            name3.GetComponent<CanvasGroup>().alpha += fadeDirName3 * fadeSpeed * Time.deltaTime;
-            name3.GetComponent<CanvasGroup>().alpha = Mathf.Clamp01(name3.GetComponent<CanvasGroup>().alpha);
-        }
-    }
+	void Update()
+	{
+		CanvasGroup x;
+		if (fadeVersionText)
+		{
+			x = versionText.GetComponent<CanvasGroup>();
+			x.alpha += fadeDirVersionText * fadeSpeed * Time.deltaTime;
+			x.alpha = Mathf.Clamp01(x.alpha);
+		}
+		if (fadeName1)
+		{
+			x = name_1.GetComponent<CanvasGroup>();
+			x.alpha += fadeDirName1 * fadeSpeed * Time.deltaTime;
+			x.alpha = Mathf.Clamp01(x.alpha);
+		}
+		if (fadeName2)
+		{
+			x = name_2.GetComponent<CanvasGroup>();
+			x.alpha += fadeDirName2 * fadeSpeed * Time.deltaTime;
+			x.alpha = Mathf.Clamp01(x.alpha);
+		}
+		if (fadeName3)
+		{
+			x = name_3.GetComponent<CanvasGroup>();
+			x.alpha += fadeDirName3 * fadeSpeed * Time.deltaTime;
+			x.alpha = Mathf.Clamp01(x.alpha);
+		}
+	}
 }

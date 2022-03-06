@@ -56,7 +56,7 @@ public class DeathManager : MonoBehaviour {
         }
 	}
 
-    void LoseTheGame ()
+    void LoseTheGame()
     {
 		isDead = true;
 		LifeManager.GetComponent<MasterTowerScript>().enabled = false;
@@ -105,15 +105,13 @@ public class DeathManager : MonoBehaviour {
 
     private void DeathTesterFunc()
     {
-        if (deathTester == true)
-        {
+        if (deathTester)
             LoseTheGame();
-        }
     }
 
     private bool IsInCorrectScene()
     {
-        return (string.Equals(SceneManager.GetActiveScene().name, "Tutorial") == false);
+        return !(string.Equals(SceneManager.GetActiveScene().name, "Tutorial"));
     }
 
 }

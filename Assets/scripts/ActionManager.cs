@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ActionManager : MonoBehaviour 
 {
-    [SerializeField] private float initialAnimationDuration = 5f;
-    [SerializeField] private float interval = 20f;
+    [SerializeField] private float initialAnimationDuration = 5;
+    [SerializeField] private float interval = 20;
     
     private WaveSpawner waveSpawner;
     private AudioManager audioManager;
@@ -17,17 +17,17 @@ public class ActionManager : MonoBehaviour
     private float countdown;
     private int numOfEnemies;
 
-    public void SpawEnemy()
+    public void IncrementEnemyCount()
     {
         numOfEnemies++;
     }
 
-    public void FinishSpawn()
+    public void SetSpawnFalse()
     {
         isSpawning = false;
     }
 
-    public void StartSpawn()
+    public void SetSpawnTrue()
     {
         isSpawning = true;
     }
@@ -51,11 +51,9 @@ public class ActionManager : MonoBehaviour
 
     private void CheckEnemies()
     {
-        if (isSpawning == true) return;
+        if (isSpawning) return;
         if (numOfEnemies == 0)
-            countdown = - 1f;
-        else
-            return;
+            countdown = -1;
     }
 
     private void Start()
@@ -80,29 +78,28 @@ public class ActionManager : MonoBehaviour
     private void CheckCountdown()
     {
         if( countdown <= 0 )
-        {
             DoNextAction();
-        }
     }
 
     private void DoNextAction()
     {
-        if( nextAction == NextAction.Interval )
+        //replace with switch case
+        if(nextAction == NextAction.Interval )
         {
             StartInterval();
             return;
         }
-        if (nextAction == NextAction.Wave)
+        if(nextAction == NextAction.Wave)
         {
             StartWave();
             return;
         }
-        if (nextAction == NextAction.Death)
+        if(nextAction == NextAction.Death)
         {
             StartDeath();
             return;
         }
-        if (nextAction == NextAction.Tutorial)
+        if(nextAction == NextAction.Tutorial)
         {
             StartTutorial();
             return;
@@ -113,11 +110,11 @@ public class ActionManager : MonoBehaviour
     {
         countdown = initialAnimationDuration;
         audioManager.SetVolume("MusicMainScene", 0.6f);
-        audioManager.PlayWithFade("MusicMainScene", 2f);
+        audioManager.PlayWithFade("MusicMainScene", 2);
         canvasManager.SetCanvasAlpha(0);
         canvasManager.PlayInitialLoadingAnimation();
-        canvasManager.PlayAppearCanvasWithDelay(4f);
-        canvasManager.SetCanvasAfterAnimationWithDelay(4f);
+        canvasManager.PlayAppearCanvasWithDelay(4);
+        canvasManager.SetCanvasAfterAnimationWithDelay(4);
         if(CurrentGameMode.IsInNormalMode())
             nextAction = NextAction.Interval;
         if (CurrentGameMode.IsInTutorialMode())
@@ -129,7 +126,7 @@ public class ActionManager : MonoBehaviour
         countdown = interval;
         nextAction = NextAction.Wave;
         audioManager.Play("IntervalSound");
-        audioManager.SetVolumeWithFade("MusicMainScene", 0.3f, 3f);
+        audioManager.SetVolumeWithFade("MusicMainScene", 0.3f, 3);
         canvasManager.PlayPrepareYourSelf();
         canvasManager.SetWaveCanvasAlpha(0);
         canvasManager.AppearWaveCoolDown();
@@ -142,7 +139,7 @@ public class ActionManager : MonoBehaviour
         //canvasManager.SetWaveCoolDownAlpha(0);
         canvasManager.SetWaveCoolDownAlpha(0);
         audioManager.Play("NewWave");
-        audioManager.SetVolumeWithFade("MusicMainScene", 0.6f, 3f);
+        audioManager.SetVolumeWithFade("MusicMainScene", 0.6f, 3);
         canvasManager.PlayWaveWarning();
         countdown = 10000f;
         waveSpawner.StartNextWave();
@@ -161,13 +158,13 @@ public class ActionManager : MonoBehaviour
         canvasManager.SetWaveCanvasAlpha(0);
         canvasManager.SetWaveCoolDownAlpha(0);
         nextAction = NextAction.Interval;
-        audioManager.SetVolumeWithFade("MusicMainScene", 0.3f, 3f);
+        audioManager.SetVolumeWithFade("MusicMainScene", 0.3f, 3);
         tutorial.transform.GetComponentInChildren<TutorialScript>().StartTutorial();
         canvasManager.AppearTutorialNameCanvas();
     }
 
     private void UpdateTime()
     {
-        countdown = countdown - Time.deltaTime;
+        countdown -= Time.deltaTime;
     }
 }

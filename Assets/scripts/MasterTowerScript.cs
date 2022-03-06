@@ -4,11 +4,12 @@ using UnityEngine.UI;
 public class MasterTowerScript : MonoBehaviour {
 
     [SerializeField] private int masterTowerIndex = 0;
+	[SerializeField] private GameObject Lives;
 
 	public float initialLifes;
 
 	private float lifes;
-	private Text lifeCounterText;
+	private Text lifeCounterNumText;
 
     private TowerManager towerManager;
 
@@ -33,17 +34,17 @@ public class MasterTowerScript : MonoBehaviour {
 	private void Start(){
 		GameObject gameMaster = GameObject.FindGameObjectWithTag ("GameMaster");
 
-		towerManager = gameMaster.GetComponent<TowerManager> ();
-		lifeCounterText = GameObject.Find ("LifeCounter").GetComponent<Text> ();
+		towerManager = gameMaster.GetComponent<TowerManager>();
+		lifeCounterNumText = Lives.GetComponent<Text>();
 		lifes = initialLifes;
-		UpdateLifeText ();
-		AddMasterTowerToTowerManager ();
+		UpdateLifeText();
+		AddMasterTowerToTowerManager();
 
-		GameObject player = gameMaster.GetComponent<InstancesManager> ().GetPlayerObj ();
-		GameObject masterTower = gameMaster.GetComponent<InstancesManager> ().GetMasterTowerObj ();
+		GameObject player = gameMaster.GetComponent<InstancesManager>().GetPlayerObj();
+		GameObject masterTower = gameMaster.GetComponent<InstancesManager>().GetMasterTowerObj();
 
-		player.GetComponent<PlayerController> ().currentSkill.GetComponent<SkillsProperties> ().SetEffect (null);
-		masterTower.GetComponent<TowerScript> ().bulletPrefab.GetComponent<SkillsProperties> ().SetEffect (null);
+		player.GetComponent<PlayerController>().currentSkill.GetComponent<SkillsProperties>().SetEffect(null);
+		masterTower.GetComponent<TowerScript>().bulletPrefab.GetComponent<SkillsProperties>().SetEffect(null);
 
 	}
 
@@ -54,6 +55,6 @@ public class MasterTowerScript : MonoBehaviour {
 
 	private void UpdateLifeText()
     {
-		lifeCounterText.text = Mathf.Round (Mathf.Clamp(lifes, 0, 1000)).ToString();
+		lifeCounterNumText.text = Mathf.Round(Mathf.Clamp(lifes, 0, 1000)).ToString();
 	}
 }
