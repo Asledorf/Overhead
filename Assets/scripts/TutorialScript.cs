@@ -11,6 +11,7 @@ public class TutorialScript : MonoBehaviour
 	[SerializeField] private float Countdown2 = 1f;
     [SerializeField] private float fadeSpeed = 0.8f;
     [SerializeField] private float fadeTime = 1.5f;
+	[SerializeField] private bool skip = false;
 
 	private int fadeDir = 1;
 	private int cont = 0; 
@@ -59,32 +60,28 @@ public class TutorialScript : MonoBehaviour
 	private IEnumerator TutorialFlow()
     {
 		yield return new WaitForSeconds (startCountdown);
+		if (skip) yield break;
 		welcomeText.SetActive (true);
 		fadeDir = 1;
 		fade = true;
-
 		yield return new WaitForSeconds (welcomeTextTime);
 		fadeDir = (-1);
 		yield return new WaitForSeconds (fadeTime);
 		welcomeText.SetActive (false);
 		yield return new WaitForSeconds (Countdown1);
+		if (skip) yield break;
 		wasdKeysText.SetActive (true);
 		fadeDir = (1);
-		yield return new WaitForSeconds (fadeTime);
-
-		StartCoroutine(WaitForKeyDown ("w"));
-		StartCoroutine(WaitForKeyDown ("a"));
-		StartCoroutine(WaitForKeyDown ("s"));
-		StartCoroutine(WaitForKeyDown ("d"));
-
-		yield return new WaitUntil ( ( ) => cont >= 4 );
+		yield return new WaitForSeconds(fadeTime);
 
 		yield return new WaitForSeconds (Countdown2);
 		fadeDir = (-1);
 		yield return new WaitForSeconds (fadeTime);
+		if (skip) yield break;
 		wasdKeysText.SetActive (false);
 
 		for (int i = 0; i < texts.Length; i++) {
+			if (skip) yield break;
 			texts [i].SetActive (true);
 			fadeDir = (1);
 			yield return new WaitForSeconds (fadeTime);
@@ -108,6 +105,7 @@ public class TutorialScript : MonoBehaviour
 	
 	void Update()
     {
+		if (Input.GetKeyDown(KeyCode.Return)) skip = true;
 		if( fade )
         {
 			canvasGroup.alpha += fadeDir * fadeSpeed * Time.deltaTime; 
