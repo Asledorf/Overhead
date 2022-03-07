@@ -73,6 +73,13 @@ public class ActionManager : MonoBehaviour
         UpdateTime();
         waveSpawner.UpdateUI(countdown);
         CheckCountdown();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            waveSpawner.soulsConter.AddSouls(countdown);
+            DoNextAction();
+            DoNextAction();
+        }    
     }
 
     private void CheckCountdown()
@@ -141,7 +148,7 @@ public class ActionManager : MonoBehaviour
         audioManager.Play("NewWave");
         audioManager.SetVolumeWithFade("MusicMainScene", 0.6f, 3);
         canvasManager.PlayWaveWarning();
-        countdown = 10000f;
+        countdown = 30;
         waveSpawner.StartNextWave();
         nextAction = NextAction.Interval;
     }

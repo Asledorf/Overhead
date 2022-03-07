@@ -1838,6 +1838,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224243191545119036, guid: 0b856abfdd5ce4931b2113cd82c17491,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.48186
+      objectReference: {fileID: 0}
     - target: {fileID: 224275792424743616, guid: 0b856abfdd5ce4931b2113cd82c17491,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1933,6 +1938,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224565368808001832, guid: 0b856abfdd5ce4931b2113cd82c17491,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125
+      objectReference: {fileID: 0}
     - target: {fileID: 224578484924072674, guid: 0b856abfdd5ce4931b2113cd82c17491,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1997,6 +2007,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224745352423339216, guid: 0b856abfdd5ce4931b2113cd82c17491,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -52.667633
       objectReference: {fileID: 0}
     - target: {fileID: 224753767117470454, guid: 0b856abfdd5ce4931b2113cd82c17491,
         type: 3}
@@ -2294,6 +2309,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1727813781}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1438399509
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 1070
+  m_Height: 861
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 2
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1495011576
 GameObject:
   m_ObjectHideFlags: 0
