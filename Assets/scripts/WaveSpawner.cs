@@ -5,6 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour {
 
+    public enum Difficulty 
+    {
+		Easy,
+		Medium,
+		Hard,
+		Expert,
+		StopTrying
+    }
+
+	public Difficulty dif = Difficulty.StopTrying;
+	private float difMulti = 1;
+
 	[Header("Spawn Attributes")]
 		public float timeBetweenWaves = 5f;
 		public float spawnDelay = 0.5f;
@@ -38,7 +50,7 @@ public class WaveSpawner : MonoBehaviour {
 	private Transform[] spawnPoint;
 	private GameObject masterTower;
 	private GameObject[] thisWaveSpawnEnemies;
-	private SoulsCounter soulsConter;
+	public SoulsCounter soulsConter;
 	private WayPointsScript[] wayPoints;
 	private MasterTowerScript masterTowerScript;
 	private Text warningWaveText;
@@ -123,7 +135,7 @@ public class WaveSpawner : MonoBehaviour {
 			}
 		}
 		auxArr[auxArrIdx] = indexVal;
-		thisWaveSpawnEnemies = new GameObject[auxArrIdx + 1];
+		thisWaveSpawnEnemies = new GameObject[(int)(auxArrIdx + (1 * difMulti))];
 		int j = 0; 
 		for (int i = auxArrIdx; i >= 0; i--) 
         {
@@ -140,9 +152,9 @@ public class WaveSpawner : MonoBehaviour {
 
 	private void AdjustDifficulty()
     {
-		baseSpeed *= SpeedWaveConst;
-		baseSpeed = Mathf.Clamp (baseSpeed, 1f, 2f);
-		baseHP *= HPWaveConst;
+		baseSpeed *= (SpeedWaveConst * difMulti);
+		baseSpeed = Mathf.Clamp (baseSpeed, 1f, 6f);
+		baseHP *= (HPWaveConst * difMulti);
 	}
 
 	private void Awake()
@@ -158,6 +170,7 @@ public class WaveSpawner : MonoBehaviour {
 		soulsConter = GetComponent<SoulsCounter>();
 		masterTowerScript = masterTower.GetComponent<MasterTowerScript>();
         actionManager = gameObject.GetComponent<ActionManager>();
+		UpdateDifficulty();
         baseSpeed = baseSpeedConst;
         baseHP = baseHPConst;
         if (IsInCorrectScene() == false) return;
@@ -165,6 +178,30 @@ public class WaveSpawner : MonoBehaviour {
         waveCountdownText = CooldownNum.GetComponent<Text>();
         warningWaveText = GameObject.Find("WaveWarningNum").GetComponent<Text>();
 	}
+
+    private void UpdateDifficulty()
+    {
+        switch (dif)
+        {
+            case Difficulty.Easy:
+				difMulti = 1;
+                break;
+            case Difficulty.Medium:
+				difMulti = 1.5f;
+				break;
+            case Difficulty.Hard:
+				difMulti = 2f;
+				break;
+            case Difficulty.Expert:
+				difMulti = 2.5f;
+                break;
+            case Difficulty.StopTrying:
+				difMulti = 5;
+				break;
+            default:
+                break;
+        }
+    }
 
     private bool IsInCorrectScene()
     {
