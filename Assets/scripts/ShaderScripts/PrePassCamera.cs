@@ -41,7 +41,8 @@ public class PrePassCamera : MonoBehaviour {
             RenderTexture rt = RenderTexture.GetTemporary(BlurTexture.width, BlurTexture.height); //Temporary texture to apply iterative blur
             Graphics.Blit(BlurTexture, rt, _blurMaterial); //Step 1 of iterative blur, the temporary texture receives the blur texture, but blurred(by the blur shader)
             Graphics.Blit(rt, BlurTexture, _blurMaterial); //Step 2 of iterative blur, now the blurtexture receives its blurred version and it gets blurred one more time in the process
-            RenderTexture.ReleaseTemporary(rt);
+            //RenderTexture.ReleaseTemporary(rt);
+            rt.Release();
         }
         //After the loop, the blur texture is very blurred
     }
