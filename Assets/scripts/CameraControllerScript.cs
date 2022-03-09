@@ -110,7 +110,6 @@ public class CameraControllerScript : MonoBehaviour
 	{
 		return Mathf.Clamp(scroll, (-1f) * scrollMaxSensibility, scrollMaxSensibility);
 	}
-
 	
 	//Camera zoom moviment
 	private void ZoomMovement(float scroll)
