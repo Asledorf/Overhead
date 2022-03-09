@@ -1122,7 +1122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 294.98, y: -314}
+  m_AnchoredPosition: {x: 294.98, y: -293}
   m_SizeDelta: {x: 225, y: 58}
   m_Pivot: {x: 0.5, y: 0.28538412}
 --- !u!114 &587816308
@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef78957d5fe724a39b9819c1c73e2f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dif: 4
   timeBetweenWaves: 20
   spawnDelay: 0.8
   baseSpeedConst: 1
@@ -1826,6 +1827,11 @@ MonoBehaviour:
   - 1
   - 1
   - 1
+  CooldownText: {fileID: 0}
+  CooldownNum: {fileID: 0}
+  WaveText: {fileID: 0}
+  WaveNum: {fileID: 0}
+  soulsConter: {fileID: 0}
 --- !u!4 &1204336668
 Transform:
   m_ObjectHideFlags: 0
