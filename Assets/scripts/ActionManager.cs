@@ -49,6 +49,10 @@ public class ActionManager : MonoBehaviour
         CurrentGameMode.SetGameMode(CurrentGameMode.GameMode.Normal);
     }
 
+    public void ChangeWaveDifficulty(int difChange) {
+      waveSpawner.SetDifficulty(difChange);
+    }
+
     private void CheckEnemies()
     {
         if (isSpawning) return;

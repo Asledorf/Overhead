@@ -62,6 +62,36 @@ public class WaveSpawner : MonoBehaviour {
 		wayPoints [moduleIndex] = waypoint;
 		moduleIndex++;
 	}
+	public void SetDifficulty(int difChange) {
+		int difSet = (int)(dif) + difChange;
+		switch (difSet) {
+			case -1:
+				dif = Difficulty.StopTrying;
+				break;
+			case 0:
+				dif = Difficulty.Easy;
+				break;
+			case 1:
+				dif = Difficulty.Medium;
+				break;
+			case 2:
+				dif = Difficulty.Hard;
+				break;
+			case 3:
+				dif = Difficulty.Expert;
+				break;
+			case 4:
+				dif = Difficulty.StopTrying;
+				break;
+			case 5:
+				dif = Difficulty.Easy;
+				break;
+			default:
+				dif = Difficulty.Medium;
+				break;
+		}
+		UpdateDifficulty();
+	}
 
     public float GetWave()
     {
@@ -166,11 +196,11 @@ public class WaveSpawner : MonoBehaviour {
 
 	private void Start()
     {
-		masterTower = GameObject.Find ("MasterTower");
-		soulsConter = GetComponent<SoulsCounter>();
-		masterTowerScript = masterTower.GetComponent<MasterTowerScript>();
+				masterTower = GameObject.Find ("MasterTower");
+				soulsConter = GetComponent<SoulsCounter>();
+				masterTowerScript = masterTower.GetComponent<MasterTowerScript>();
         actionManager = gameObject.GetComponent<ActionManager>();
-		UpdateDifficulty();
+				UpdateDifficulty();
         baseSpeed = baseSpeedConst;
         baseHP = baseHPConst;
         if (IsInCorrectScene() == false) return;
@@ -179,29 +209,27 @@ public class WaveSpawner : MonoBehaviour {
         warningWaveText = GameObject.Find("WaveWarningNum").GetComponent<Text>();
 	}
 
-    private void UpdateDifficulty()
-    {
-        switch (dif)
-        {
-            case Difficulty.Easy:
+	private void UpdateDifficulty() {
+		switch (dif) {
+			case Difficulty.Easy:
 				difMulti = 1;
-                break;
-            case Difficulty.Medium:
+				break;
+			case Difficulty.Medium:
 				difMulti = 1.5f;
 				break;
-            case Difficulty.Hard:
+			case Difficulty.Hard:
 				difMulti = 2f;
 				break;
-            case Difficulty.Expert:
+			case Difficulty.Expert:
 				difMulti = 2.5f;
-                break;
-            case Difficulty.StopTrying:
+				break;
+			case Difficulty.StopTrying:
 				difMulti = 5;
 				break;
-            default:
-                break;
-        }
-    }
+			default:
+				break;
+		}
+	}
 
     private bool IsInCorrectScene()
     {
