@@ -65,6 +65,7 @@ public class WaveSpawner : MonoBehaviour {
 		wayPoints [moduleIndex] = waypoint;
 		moduleIndex++;
 	}
+
 	public void SetDifficulty(int difChange)
 	{
 		int difSet = (int)(dif) + difChange;

@@ -37,8 +37,10 @@ public class AudioManager : MonoBehaviour
 
     public void StopWithFade(string audioName, float fadeTime)
     {
+
         Sound s = Find(audioName);
-        s?.source?.Stop();
+        if (s == null) return;
+        s.source.Stop();
 
         StartCoroutine(FadeAudio(s, 0, fadeTime, "stop"));
     } 
@@ -56,11 +58,22 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeAudio(s, volume, fadeTime));
     }
 
-    //Set sounds that will play as the game starts:
-    private void Start()
-    {
+     void OnEnable()
+     {
+         SceneManager.sceneLoaded += OnLevelFinishedLoading;
+     }
+ 
+     void OnDisable()
+     {
+         SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+     }
+ 
+     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode) //like the start method but for persistent objects
+     {
         if (SceneManager.GetActiveScene().name == "MainMenu")
             PlayWithFade("MainMenuMusic", 2f);
+        else
+            StopWithFade("MainMenuMusic", 2f);
     }
 
     private void Awake () 

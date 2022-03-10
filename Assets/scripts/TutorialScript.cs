@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour 
 {
@@ -14,15 +12,10 @@ public class TutorialScript : MonoBehaviour
 	[SerializeField] private bool skip = false;
 
 	private int fadeDir = 1;
-	private int cont = 0; 
     private bool fade;
     private float mainCountdown = 5f;
 	private GameObject welcomeText;
 	private GameObject wasdKeysText;
-	private GameObject wKey;
-	private GameObject aKey;
-	private GameObject sKey;
-	private GameObject dKey;
 	private GameObject flow;
     private GameObject[] texts;
     private CanvasGroup canvasGroup;
@@ -45,10 +38,6 @@ public class TutorialScript : MonoBehaviour
 			texts [i].SetActive (false);
 		}
 
-		wKey = GameObject.Find ("wKey");
-		aKey = GameObject.Find ("aKey");
-		sKey = GameObject.Find ("sKey");
-		dKey = GameObject.Find ("dKey");
 		canvasGroup = GameObject.Find ("TutorialCanvas").GetComponent<CanvasGroup> ();
 		welcomeText = GameObject.Find("WelcomeText");
 		wasdKeysText = GameObject.Find("WASD Keys");
@@ -96,13 +85,6 @@ public class TutorialScript : MonoBehaviour
         actionManager.FinishTutorial();
 	}
 
-	IEnumerator WaitForKeyDown(string key)
-	{
-		while (!Input.GetKey (key)) 
-			yield return null;
-		cont++;
-	}
-	
 	void Update()
     {
 		if (Input.GetKeyDown(KeyCode.Return)) skip = true;
