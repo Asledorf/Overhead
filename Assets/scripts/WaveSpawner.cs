@@ -174,7 +174,7 @@ public class WaveSpawner : MonoBehaviour {
 			else 
             {
 				indexVal += actualVal * mult;
-				mult = mult * 10;
+				mult *= 10;
 			}
 		}
 		auxArr[auxArrIdx] = indexVal;
@@ -252,26 +252,21 @@ public class WaveSpawner : MonoBehaviour {
 	//Instantiate the Enemy and set the waypoints
 	private void EnemySpawn(GameObject enemyPrefab)
     {
+		if (!enemyPrefab) return;
 		for (int i = 0; i < 4; i++) 
         {
-			GameObject enemyGameObj = (GameObject)Instantiate (enemyPrefab, spawnPoint [i].position, spawnPoint [i].rotation);
-			enemyGameObj.GetComponent<Enemy> ().SetWayPoints (wayPoints [i]);
+			GameObject enemyGameObj = Instantiate(enemyPrefab, spawnPoint[i].position, spawnPoint[i].rotation);
+			enemyGameObj.GetComponent<Enemy>().SetWayPoints (wayPoints [i]);
             actionManager.IncrementEnemyCount();
 		}
 	}
 
-	/// <summary>
-	/// Updates the soul.
-	/// </summary>
 	private void UpdateSoul()
     {
         if (IsInCorrectScene())
             soulsConter.SetWave (waveNumber - 1);
 	}
 
-	/// <summary>
-	/// Updates the lifes.
-	/// </summary>
 	private void UpdateLifes()
     {
         if (IsInCorrectScene())

@@ -11,6 +11,8 @@ public class DeathManager : MonoBehaviour {
     [SerializeField] private GameObject DeathCamera;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private GameObject GameOverCanvas;
+    [SerializeField] private GameObject ScoreText;
+    [SerializeField] private GameObject WavesText;
     [SerializeField] private bool deathTester = false;
 
     private float numberOfLives = 10;
@@ -77,8 +79,8 @@ public class DeathManager : MonoBehaviour {
         GameObject.Find("Bruxo").GetComponent<PlayerController>().enabled = false;
         StartCoroutine(Blur());
 		fading.AppearPlayerScoreCanvas ();
-        GameObject.Find("Waves").GetComponent<Text>().text = wave.ToString();
-        GameObject.Find("Score").GetComponent<Text>().text = score.ToString();
+        WavesText.GetComponent<Text>().text = wave.ToString();
+        ScoreText.GetComponent<Text>().text = score.ToString();
     }
 
     IEnumerator Blur()

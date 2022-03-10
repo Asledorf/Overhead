@@ -34,7 +34,7 @@ public class SpeedIndicator : MonoBehaviour
             else
             {
                 clock.color = Color.red;
-                speed.text = "paused";
+                speed.text = "0x";
             }
         }
     }
