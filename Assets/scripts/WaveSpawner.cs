@@ -17,6 +17,9 @@ public class WaveSpawner : MonoBehaviour {
 	public Difficulty dif = Difficulty.StopTrying;
 	private float difMulti = 1;
 
+	[SerializeField]
+		private Text difText;
+
 	[Header("Spawn Attributes")]
 		public float timeBetweenWaves = 5f;
 		public float spawnDelay = 0.5f;
@@ -62,38 +65,48 @@ public class WaveSpawner : MonoBehaviour {
 		wayPoints [moduleIndex] = waypoint;
 		moduleIndex++;
 	}
-	public void SetDifficulty(int difChange) {
+	public void SetDifficulty(int difChange)
+	{
 		int difSet = (int)(dif) + difChange;
-		switch (difSet) {
+		switch (difSet)
+		{
 			case -1:
 				dif = Difficulty.StopTrying;
+				difText.text = "Stop Trying";
 				break;
 			case 0:
 				dif = Difficulty.Easy;
+				difText.text = "Easy";
 				break;
 			case 1:
 				dif = Difficulty.Medium;
+				difText.text = "Normal";
 				break;
 			case 2:
 				dif = Difficulty.Hard;
+				difText.text = "Hard";
 				break;
 			case 3:
 				dif = Difficulty.Expert;
+				difText.text = "Expert";
 				break;
 			case 4:
 				dif = Difficulty.StopTrying;
+				difText.text = "Stop Trying";
 				break;
 			case 5:
 				dif = Difficulty.Easy;
+				difText.text = "Easy";
 				break;
 			default:
 				dif = Difficulty.Medium;
+				difText.text = "Normal";
 				break;
 		}
 		UpdateDifficulty();
 	}
 
-    public float GetWave()
+	public float GetWave()
     {
         return waveNumber;
     }

@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
     public void StopWithFade(string audioName, float fadeTime)
     {
         Sound s = Find(audioName);
-        s.source.Stop();
+        s?.source?.Stop();
 
         StartCoroutine(FadeAudio(s, 0, fadeTime, "stop"));
     } 
@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour
     public void SetVolume(string audioName, float volume)
     {
         Sound s = Find(audioName);
+        if(s != null)
         s.source.volume = volume;
     }
 
@@ -98,7 +99,7 @@ public class AudioManager : MonoBehaviour
 
         if (s == null)
         {
-            Debug.LogError("Sound: " + name + "not found!");
+            //Debug.LogError("Sound: " + name + "not found!");
             return null;
         }
 
@@ -112,17 +113,22 @@ public class AudioManager : MonoBehaviour
             _audio.source.Play();
         }
 
-        float numOfParts = time * 10f;
-        float deltaVol = (finalVolume - _audio.source.volume) / numOfParts;
-        for (int i = 0; i < numOfParts; i ++)
+        float numOfParts = time * 10;
+
+        if(_audio != null)
         {
-            yield return new WaitForSeconds( time / numOfParts);
-            _audio.source.volume += deltaVol;
+            float deltaVol = (finalVolume - _audio.source.volume) / numOfParts;
+
+            for (int i = 0; i < numOfParts; i ++)
+            {
+                yield return new WaitForSeconds( time / numOfParts);
+                _audio.source.volume += deltaVol;
+            }
         }
 
         if (otherAction == "stop")
         {
-            _audio.source.Stop();
+            _audio?.source.Stop();
         }
     }
 }

@@ -12,7 +12,8 @@ public class LoadManager : MonoBehaviour
     public void CallLoadScene (int buildIndex)
     {
         sceneToLoad = buildIndex;
-        SceneManager.LoadScene("LoadingScreen");
+        //SceneManager.LoadScene("LoadingScreen");
+        SceneManager.LoadScene(buildIndex);
     }
 
     private void Awake()

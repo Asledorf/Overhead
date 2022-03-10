@@ -20,7 +20,7 @@ public class MainMenuAudio : MonoBehaviour {
         {
             audioManager.StopWithFade("MusicMainScene", 2f);
             audioManager.StopWithFade("MainMenuMusic", 2f);
-            print("aqui");
+            //print("aqui");
         }
             
 	}
